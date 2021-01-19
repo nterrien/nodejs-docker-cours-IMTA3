@@ -1,0 +1,20 @@
+#Ajout d'un utilisateur
+
+Method : POST 
+URL : http://0.0.0.0:5000/compte/
+HEADERS : Content-Type: application/json
+BODY : { "passwordAdmin": "123456" , "newUser" :{"name": "nicolas", "email": "nicolas@truc.fr", "age": 22, "username": "beignet", "password": "123" }}
+
+#Voir tous les utilisateurs
+
+Method : GET 
+URL : http://0.0.0.0:5000/compte/
+HEADERS : Content-Type: application/json
+BODY : 
+
+#Voir le détail d'un utilisateur
+
+Method : PUT 
+URL : http://0.0.0.0:5000/compte/login
+HEADERS : Content-Type: application/json
+BODY : { "username": "beignet", "password":"123"}
