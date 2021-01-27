@@ -2,11 +2,13 @@
 
 Installer au préalable mysql et nodejs sur le pc
 
+Le code fonctionnant seulement en local est situé dans le dossier ```local```
+
 Ouvrir 2 terminaux
 
 ## Premier Terminal (User Service)
 
-Aller dans le repertoire "users-service" (```cd users-service```)
+Aller dans le repertoire "users-service" (```cd local/users-service```)
 
 Installer les dependances :
 ```npm install```
@@ -18,7 +20,7 @@ Executer le code :
 
 ## Deuxième Terminal (Catalog Service)
 
-Aller dans le repertoire "catalog-service" (```cd catalog-service```)
+Aller dans le repertoire "catalog-service" (```cd local/catalog-service```)
 
 Installer les dependances :
 ```npm install```
@@ -31,3 +33,7 @@ Executer le code :
 ## Comment s'en servir
 
 Des exemples de requetes sont trouvable dans les fichiers requetePourTester.txt dans les deux dossiers
+
+# Faire fonctionner le code avec Docker 
+
+TODO
