@@ -2,9 +2,9 @@ import express from 'express';
 import * as bodyParser from 'body-parser';
 const { Sequelize } = require('sequelize');
 
-const sequelize = new Sequelize("User-Api", "icodb", "123456", {
+const sequelize = new Sequelize("User-Api", "root", "123456", {
     dialect: "mysql",
-    host: "localhost"
+    host: "mysql"
 });
 
 
