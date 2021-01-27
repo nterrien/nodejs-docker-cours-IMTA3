@@ -66,7 +66,7 @@ docker run -d \
      --network net --network-alias mysql \
      -v mysql-data:/var/lib/mysql \
      -e MYSQL_ROOT_PASSWORD=123456 \
-     -e MYSQL_DATABASE=todos \
+     -e MYSQL_DATABASE=User-Api \
      mysql:latest
 ```
 
@@ -77,7 +77,7 @@ docker run -dp 3000:3000 \
    -e MYSQL_HOST=mysql \
    -e MYSQL_USER=root \
    -e MYSQL_PASSWORD=123456 \
-   -e MYSQL_DB=todos \
+   -e MYSQL_DB=User-Api \
    app:0.0 \
    sh -c "npm run start"
 ```
