@@ -36,4 +36,45 @@ Des exemples de requetes sont trouvable dans les fichiers requetePourTester.txt 
 
 # Faire fonctionner le code avec Docker 
 
-TODO
+Attention !!! Nous n'avons pas réussi à faire tourner le code sur Docker car nous n'arrivons pas à nous connecter à la base de données...
+Voici néanmoins les étapes qui, selon nous, auraient dû marcher.
+
+## Avec docker-compose
+
+Tout d'abord il faut créer l'image de notre code.
+Pour cela, placez vous dans le dossier ./docker/users-service et éxecutez la commande :
+```docker build -t app:0.0 .```
+
+il suffit ensuite d'éxécuter la commande suivante pour faire tourner le code :
+```docker-compose up```
+
+Malheureusement, la connection à la base de données ne se fait pas...
+
+
+## Sans docker-compose
+
+Tout d'abord il faut créer l'image de notre code.
+Pour cela, placez vous dans le dossier ./docker/users-service et éxecutez la commande :
+```docker build -t app:0.0 .```
+
+nous allons ensuite créer un réseau :
+```docker network create net```
+
+il suffit maintenant de lancer la base de données dans ce réseau :
+```docker run -d \
+     --network net --network-alias mysql \
+     -v mysql-data:/var/lib/mysql \
+     -e MYSQL_ROOT_PASSWORD=123456 \
+     -e MYSQL_DATABASE=todos \
+     mysql:latest```
+
+Puis il reste à lancer notre code après que la base de données ait fini de se lancer :
+```docker run -dp 3000:3000 \
+   --network net \
+   -e MYSQL_HOST=mysql \
+   -e MYSQL_USER=root \
+   -e MYSQL_PASSWORD=123456 \
+   -e MYSQL_DB=todos \
+   app:0.0 \```
+
+Malheureusement, avec cette méthode non plus la connection à la base de données ne se fait pas.
